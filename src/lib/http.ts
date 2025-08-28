@@ -2,7 +2,7 @@ import axios from "axios";
 import { auth } from "./auth";
 
 export const http = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE,
+  baseURL: "/api", // dev: Vite proxy, prod: Nginx proxy
 });
 
 http.interceptors.request.use((cfg) => {
@@ -14,9 +14,7 @@ http.interceptors.request.use((cfg) => {
 http.interceptors.response.use(
   (res) => res,
   (err) => {
-    if (err.response?.status === 401) {
-      auth.logout();
-    }
+    if (err.response?.status === 401) auth.logout();
     return Promise.reject(err);
   }
 );
