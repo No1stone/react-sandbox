@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
 import AppShell from "@/components/AppShell";
-import TodoPage from "@/apps/todo/TodoPage"; 
 
 function Protected({ children }: { children: JSX.Element }) {
   const token = localStorage.getItem("accessToken");
@@ -27,7 +26,6 @@ export default function AppRoutes() {
           {/* <Route path="apps/:slug" element={<SomeApp />} /> */}
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="apps/todo" element={<TodoPage />} />
       </Routes>
     </BrowserRouter>
   );
