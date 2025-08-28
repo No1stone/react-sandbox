@@ -4,8 +4,8 @@ import sidebarMenu from './sidebarMenu'
 
 export default function Sidebar() {
     return (
-      <aside className="h-full border-r bg-white p-3 w-56">
-        <div className="text-sm text-gray-500 mb-2">UI Components</div>
+        <aside className="h-full border-r border-neutral-800 bg-neutral-900 text-gray-100 w-56 p-3">
+        <div className="text-sm text-neutral-400 mb-2">UI Components</div>
         <nav className="space-y-1">
           {sidebarMenu.map(item => (
             <NavLink
