@@ -1,20 +1,26 @@
 // src/components/Sidebar.tsx
 import { NavLink } from 'react-router-dom'
+import sidebarMenu from './sidebarMenu'
 
 export default function Sidebar() {
-  return (
-    <aside className="h-full border-r bg-white p-3">
-      <div className="text-sm text-gray-500 mb-2">Apps</div>
-      <nav className="space-y-1 text-sm">
-        <NavLink
-          to="/apps/todo"
-          className={({ isActive }) =>
-            `block px-3 py-2 rounded ${isActive ? 'bg-gray-900 text-white' : 'hover:bg-gray-50'}`
-          }
-        >
-          Todo
-        </NavLink>
-      </nav>
-    </aside>
-  )
-}
+    return (
+      <aside className="h-full border-r bg-white p-3 w-56">
+        <div className="text-sm text-gray-500 mb-2">UI Components</div>
+        <nav className="space-y-1">
+          {sidebarMenu.map(item => (
+            <NavLink
+              key={item.slug}
+              to={item.path}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded text-sm ${
+                  isActive ? 'bg-gray-900 text-white' : 'hover:bg-gray-50'
+                }`
+              }
+            >
+              {item.title}
+            </NavLink>
+          ))}
+        </nav>
+      </aside>
+    )
+  }
