@@ -8,6 +8,7 @@ export type MiniApp = {
   const apps: MiniApp[] = [
     { slug: 'todo', title: 'Todo', path: '/apps/todo' },
     { slug: 'todo2', title: 'Todo2', path: '/apps/todo2' },
+    { slug: 'github', title: 'GitHub', externalUrl: 'https://github.com/No1stone' },
   ]
   
   export default apps as const
